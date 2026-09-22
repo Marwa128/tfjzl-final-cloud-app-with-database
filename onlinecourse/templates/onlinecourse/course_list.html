@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Online Courses List</h2>
+        <hr>
+        <ul class="list-group">
+            {% for course in course_list %}
+                <li class="list-group-item">
+                    <a href="{% url 'onlinecourse:course_details' course.id %}">{{ course.name }}</a>
+                </li>
+            {% empty %}
+                <p>No courses available yet.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
